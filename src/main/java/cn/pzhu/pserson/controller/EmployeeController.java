@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class EmployeeController {
@@ -95,17 +96,40 @@ public class EmployeeController {
     }
     model.addAttribute("list", needList);
 
-    List<String> jobList=new ArrayList<String>();
+    // List<String> jobList=new ArrayList<String>();
+    // for(EmployeeResDTO e : list){
+    //   String jobName = e.getJob();
+    //   jobList.add(jobName);
+    //   System.out.println("job:"+jobName);
+    // }
+
+    Map<Integer, String> jobMap = new HashMap<Integer, String>();
     for(EmployeeResDTO e : list){
+      Integer jobID = e.getJobId();
       String jobName = e.getJob();
-      jobList.add(jobName);
-      System.out.println("job:"+jobName);
-    
+      jobMap.put(jobID, jobName);
     }
-    model.addAttribute("jobList", jobList);
+
+    model.addAttribute("jobMap", jobMap);
     return "/dept/maga1";
   }
   
+  @RequestMapping(value = "/employee/update", method = RequestMethod.POST)
+  public ModelAndView update(ModelAndView mv, @ModelAttribute Employee employee, Integer jobId) {
+    Employee emp = employeeService.getEmployee(employee.getId());
+    emp.setJobId(jobId);
+    employeeService.update(emp);
+    // System.out.println("成功：" + jobId.toString());
+//     if (employee.getId() != null) {
+//       employeeService.update(employee);
+// //      rainservice.insert_EmployeeInfo(job);
+//     } else {
+//       employeeService.insert(employee);
+// //      rainservice.update_EmployeeInfo(job);
+//     }
+    // mv.setViewName("redirect:/employee/list?pageNum=1&pageSize=6");
+    return mv;
+  }
 
   @RequestMapping(value = "/employee/add", method = RequestMethod.POST)
   public ModelAndView add(ModelAndView mv, @ModelAttribute Employee job, Integer id) {

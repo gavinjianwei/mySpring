@@ -34,7 +34,7 @@
   
   <body>
     <div class="x-body">
-        <form class="layui-form" method="POST" id="deptForm"  action="${ctx}/dept/add">
+        <form class="layui-form" method="POST" id="deptForm" action="${ctx}/employee/update">
           
 
           <div>
@@ -69,9 +69,9 @@
                     <th style="text-align: center;">グループ名</th>
                     <th style="text-align: center;">名前</th>
                     <th style="text-align: center;">役割
-                      <select name="job" id="job">
-                        <c:forEach items="${requestScope.jobList}" var="job" varStatus="stat">
-                          <option value="${job}">${job}</option>
+                      <select name="jobId" id="jobId">
+                        <c:forEach items="${requestScope.jobMap}" var="job" varStatus="stat">
+                          <option value="${job.key}">${job.value}</option>
                         </c:forEach>
                       </select>
                     </th>
@@ -79,12 +79,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="${requestScope.list}" var="dept" varStatus="stat">
+                  <c:forEach items="${requestScope.list}" var="emp" varStatus="stat">
                     <tr>
-                      <input type="hidden" name="id" id="id" value="${dept.id}">
-                      <td>${dept.dept}</td>
-                      <td>${dept.name}</td>
-                      <td>${dept.job}</td>
+                      <input type="hidden" name="id" id="id" value="${emp.id}">
+                      <td>${emp.dept}</td>
+                      <td>${emp.name}</td>
+                      <td>${emp.job}</td>
                     </tr>
                   </c:forEach>
                 </tbody>
@@ -134,25 +134,42 @@
           //监听提交
           form.on('submit(add)', function(data){
             console.log(data);
-            var id = document.getElementById("id").value;
-            console.log(id);
-            if (id === null || id === '') {
-              layer.alert("增加成功", {icon: 6},function () {
-                  document.getElementById('deptForm').submit();
-                  // 获得frame索引
-                  var index = parent.layer.getFrameIndex(window.name);
-                  //关闭当前frame
-                  parent.layer.close(index);
-              });
-            } else {
-                layer.alert("修改成功", {icon: 6},function () {
-                    document.getElementById('deptForm').submit();
-                    // 获得frame索引
-                    var index = parent.layer.getFrameIndex(window.name);
-                    //关闭当前frame
-                    parent.layer.close(index);
-                });
-            }
+            // var id = document.getElementById("id").value;
+            // var jobId = document.getElementById("job").value;
+
+            // console.log(id);
+            
+            // console.log("abc: " + jobId);
+
+            // window.alert("abc: " + jobId);
+
+            layer.alert("修改成功", {icon: 6},function () {
+                document.getElementById('deptForm').submit();
+
+                // 获得frame索引
+                var index = parent.layer.getFrameIndex(window.name);
+                //关闭当前frame
+                parent.layer.close(index);
+            });
+
+
+            // if (id === null || id === '') {
+            //   layer.alert("增加成功", {icon: 6},function () {
+            //       document.getElementById('deptForm').submit();
+            //       // 获得frame索引
+            //       var index = parent.layer.getFrameIndex(window.name);
+            //       //关闭当前frame
+            //       parent.layer.close(index);
+            //   });
+            // } else {
+            //     layer.alert("修改成功", {icon: 6},function () {
+            //         document.getElementById('deptForm').submit();
+            //         // 获得frame索引
+            //         var index = parent.layer.getFrameIndex(window.name);
+            //         //关闭当前frame
+            //         parent.layer.close(index);
+            //     });
+            // }
 
             //发异步，把数据提交给php
             
