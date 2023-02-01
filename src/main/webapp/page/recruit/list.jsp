@@ -46,7 +46,7 @@
         </form>
       </div>
       <%-- <xblock>
- <!--        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
+ <!--        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量削除</button> -->
         <button class="layui-btn" onclick="x_admin_show('添加用户','${ctx}/dept/add')"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
       </xblock> --%>
@@ -87,10 +87,10 @@
              <!--  <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                 <i class="layui-icon">&#xe601;</i>
               </a> -->
-              <a title="编辑"  href="${ctx}/recruit/add?id=${dept.id }">
+              <a title="変更"  href="${ctx}/recruit/add?id=${dept.id }">
                 <i class="layui-icon">&#xe642;</i>
               </a> 
-              <a title="删除" onclick="member_del(this,'${recruit.id }')" href="javascript:;">
+              <a title="削除" onclick="member_del(this,'${recruit.id }')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </td>
@@ -120,14 +120,14 @@
     </div>
   </body>
 <script>
-   /*用户-删除*/
+   /*用户-削除*/
    function member_del(obj,id){
-          layer.confirm('确认要删除吗？',function(index){
-              //发异步删除数据
+          layer.confirm('削除を再確認？',function(index){
+              //发异步削除数据
               //等以后再使用异步，这里先使用
               $.get("${ctx}/recruit/delete?id="+id);
               $(obj).parents("tr").remove();
-              layer.msg('已删除!',{icon:1,time:1000});
+              layer.msg('已削除!',{icon:1,time:1000});
           });
       }
 </script>

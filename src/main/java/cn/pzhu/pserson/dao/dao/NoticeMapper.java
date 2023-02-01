@@ -27,7 +27,7 @@ public interface NoticeMapper extends Mapper<Notice> {
   @SelectProvider(type = NoticeDynaSqlProvider.class, method = "update_Notice")
   void update_Info(Notice employee);
 
-  // 根据id删除部门
+  // 根据id削除部门
   @Delete(" delete from " + Constants.NOTICETABLE + " where id = #{id} ")
   void delete_Info(Integer id);
 }

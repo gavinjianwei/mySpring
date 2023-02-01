@@ -100,7 +100,7 @@
                 </table>
             </div>
         </fieldset>
-        <fieldset class="layui-elem-field">
+        <!-- <fieldset class="layui-elem-field">
             <legend>开发团队</legend>
             <div class="layui-field-box">
                 <table class="layui-table">
@@ -118,7 +118,7 @@
             </div>
         </fieldset>
         <blockquote class="layui-elem-quote layui-quote-nm">thanks av8d</blockquote>
-    </div>
+    </div> -->
         <script>
         var _hmt = _hmt || [];
         (function() {

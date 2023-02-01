@@ -31,7 +31,7 @@ public interface JobMapper extends Mapper<Job> {
   @SelectProvider(type = JobDynaSqlProvider.class, method = "updateDept")
   void update_Info(Job job);
 
-  // 根据id删除部门
+  // 根据id削除部门
   @Delete(" delete from " + Constants.JOBTABLE + " where id = #{id} ")
   void delete_Info(Integer id);
 

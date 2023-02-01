@@ -34,7 +34,7 @@ public interface DeptMapper extends Mapper<Dept> {
   @SelectProvider(type = DeptDynaSqlProvider.class, method = "updateDept")
   void update_Info(Dept dept);
 
-  // 根据id删除部门
+  // 根据id削除部门
   @Delete(" delete from " + Constants.DEPTTABLE + " where id = #{id} ")
   void delete_Info(Integer id);
 }

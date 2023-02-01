@@ -73,7 +73,7 @@ public class EmployeeDynaSqlProvider {
 					}
 				}.toString();
 			}
-			// 动态更新
+			// 动态変更
 			public String update_Employee(Employee job){
 
 				return new SQL(){

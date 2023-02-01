@@ -31,7 +31,7 @@ public interface DocumentMapper extends Mapper<Document> {
   @SelectProvider(type = DocumentDynaSqlProvider.class, method = "update")
   void update_Info(Document dept);
 
-  // 根据id删除部门
+  // 根据id削除部门
   @Delete(" delete from " + Constants.DOCUMENTTABLE + " where id = #{id} ")
   void delete_Info(Integer id);
 

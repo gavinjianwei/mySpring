@@ -32,7 +32,7 @@ public class DocumentDynaSqlProvider {
 				}
 			}.toString();
 		}	
-		// 动态更新
+		// 动态変更
 		public String update(Document dept){
 			
 			return new SQL(){

@@ -3,6 +3,7 @@ package cn.pzhu.pserson.controller;
 import cn.pzhu.pserson.domain.Dept;
 import cn.pzhu.pserson.domain.Employee;
 import cn.pzhu.pserson.domain.Job;
+import cn.pzhu.pserson.domain.response.EmployeeResDTO;
 import cn.pzhu.pserson.service.EmployeeService;
 import cn.pzhu.pserson.service.RainService;
 import com.github.pagehelper.PageInfo;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import java.util.ArrayList;
 
 @Controller
 public class EmployeeController {
@@ -62,6 +64,48 @@ public class EmployeeController {
     model.addAttribute("dept_list", (List<Dept>) info.get("depts"));
     return "/employee/add";
   }
+
+  @RequestMapping(value = "/dept/maga", method = RequestMethod.GET)
+  public String maga(Model model, Integer id) {
+    PageInfo pageInfo = employeeService.getEmployee(null,0,7);
+    List<EmployeeResDTO> list = (List<EmployeeResDTO>) pageInfo.getList();
+    List<EmployeeResDTO> needList = new ArrayList<EmployeeResDTO>();
+    for (EmployeeResDTO e : list) {
+      Integer jobId = e.getDeptId();
+      System.out.println("liiii : " + jobId);
+      if (jobId == id) {
+        needList.add(e);
+      }
+    }
+    model.addAttribute("list", needList);
+    return "/dept/maga";
+  }
+
+  @RequestMapping(value = "/dept/maga1", method = RequestMethod.GET)
+  public String maga1(Model model, Integer id) {
+    PageInfo pageInfo = employeeService.getEmployee(null,0,7);
+    List<EmployeeResDTO> list = (List<EmployeeResDTO>) pageInfo.getList();
+    List<EmployeeResDTO> needList = new ArrayList<EmployeeResDTO>();
+    for (EmployeeResDTO e : list) {
+      Integer myId = e.getId();
+      System.out.println("li : " + myId);
+      if (myId ==id) {
+        needList.add(e);
+      }
+    }
+    model.addAttribute("list", needList);
+
+    List<String> jobList=new ArrayList<String>();
+    for(EmployeeResDTO e : list){
+      String jobName = e.getJob();
+      jobList.add(jobName);
+      System.out.println("job:"+jobName);
+    
+    }
+    model.addAttribute("jobList", jobList);
+    return "/dept/maga1";
+  }
+  
 
   @RequestMapping(value = "/employee/add", method = RequestMethod.POST)
   public ModelAndView add(ModelAndView mv, @ModelAttribute Employee job, Integer id) {

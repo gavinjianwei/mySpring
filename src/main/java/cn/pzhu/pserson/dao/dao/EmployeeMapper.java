@@ -35,7 +35,7 @@ public interface EmployeeMapper extends Mapper<Employee> {
   @SelectProvider(type = EmployeeDynaSqlProvider.class, method = "update_Employee")
   void update_Info(Employee employee);
 
-  // 根据id删除部门
+  // 根据id削除部门
   @Delete(" delete from " + Constants.EMPLOYEETABLE + " where id = #{id} ")
   void delete_Info(Integer id);
 

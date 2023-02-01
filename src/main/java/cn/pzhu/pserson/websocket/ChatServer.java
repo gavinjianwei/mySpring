@@ -63,7 +63,7 @@ public class ChatServer {
   public void onClose() {
     System.out.println(" 123456");
 
-    webSocketSet.remove(this);  //从set中删除
+    webSocketSet.remove(this);  //从set中削除
     subOnlineCount();           //在线数减1
     list.remove(userid);        //从在线列表移除这个用户
     routetab.remove(userid);

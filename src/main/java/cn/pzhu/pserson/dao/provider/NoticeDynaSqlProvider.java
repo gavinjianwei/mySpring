@@ -29,7 +29,7 @@ public class NoticeDynaSqlProvider {
 					}
 				}.toString();
 			}	
-			// 动态更新
+			// 动态変更
 			public String update_Notice(Notice job){
 				
 				return new SQL(){

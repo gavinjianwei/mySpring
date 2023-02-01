@@ -23,19 +23,19 @@
 <body class="login-bg">
     
     <div class="login layui-anim layui-anim-up">
-        <div class="message">人事管理系统登陆</div>
+        <div class="message">人事OKR管理システム登録</div>
         <div id="darkbannerwrap"></div>
         ${requestScope.message}
         <form method="post" class="layui-form" action="${ctx}/login">
-            <input name="loginname" placeholder="用户名" value="${loginname }"  type="text" lay-verify="required" class="layui-input" >
+            <input name="loginname" placeholder="ユーザーID" value="${loginname }"  type="text" lay-verify="required" class="layui-input" >
             <hr class="hr15">
-            <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
+            <input name="password" lay-verify="required" placeholder="パスワード"  type="password" class="layui-input">
             <hr class="hr15">
             
              
            
             <hr class="hr15">
-            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
+            <input value="登録" lay-submit lay-filter="login" style="width:100%;" type="submit">
             <hr class="hr20" >
                
         </form>

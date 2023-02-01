@@ -45,7 +45,7 @@
         </form>
       </div>
       <%-- <xblock>
- <!--        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
+ <!--        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量削除</button> -->
         <button class="layui-btn" onclick="x_admin_show('添加用户','${ctx}/dept/add')"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
       </xblock> --%>
@@ -57,10 +57,10 @@
             <th>
               <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
-            <th>ID</th>
-            <th>登录名</th>
-            <th>用户名</th>
-            <th>注册日期</th>
+            <th>No</th>
+            <th>ユーザーID</th>
+            <!-- <th>用户名</th> -->
+            <th>登録日</th>
             <th>操作</th>
         </thead>
         <tbody>
@@ -71,18 +71,18 @@
             </td>
             <td>${dept.id}</td>
             <td>${dept.loginname }</td>
-            <td>${dept.username }</td>
+            <!-- <td>${dept.username }</td> -->
             <td>${dept.createtime }</td>
             
            <!--  <td class="td-status">
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td> -->
             <td class="td-manage">
-              <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
+              <%-- <a title="変更"  onclick="x_admin_show('変更','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
                 <c:if test="${user_session.loginname == 'root'}">
-                  <a title="编辑"  href="${ctx}/user/add?id=${dept.id }">
+                  <a title="変更"  href="${ctx}/user/add?id=${dept.id }">
                     <i class="layui-icon">&#xe642;</i>
                   </a>                         
-              <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
+              <a title="削除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </c:if> 
@@ -147,14 +147,14 @@
           });
       }
 
-      /*用户-删除*/
+      /*用户-削除*/
       function member_del(obj,id){
-          layer.confirm('确认要删除吗？',function(index){
-              //发异步删除数据
+          layer.confirm('削除を再確認？',function(index){
+              //发异步削除数据
               //等以后再使用异步，这里先使用
               $.get("${ctx}/user/delete?id="+id);
               $(obj).parents("tr").remove();
-              layer.msg('已删除!',{icon:1,time:1000});
+              layer.msg('已削除!',{icon:1,time:1000});
           });
       }
 
@@ -164,9 +164,9 @@
 
         var data = tableCheck.getData();
   
-        layer.confirm('确认要删除吗？'+data,function(index){
-            //捉到所有被选中的，发异步进行删除
-            layer.msg('删除成功', {icon: 1});
+        layer.confirm('削除を再確認？'+data,function(index){
+            //捉到所有被选中的，发异步进行削除
+            layer.msg('削除成功', {icon: 1});
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
       }

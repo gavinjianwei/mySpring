@@ -30,7 +30,7 @@ public class UserDynaSqlProvider {
 					}
 				}.toString();
 			}	
-			// 动态更新
+			// 动态変更
 			public String update_Notice(User job){
 				
 				return new SQL(){

@@ -35,7 +35,7 @@
                   autocomplete="off" class="layui-input" value="${job.name }">
               </div>
              
-          </div>
+          <!-- </div>
           <div class="layui-form-item" >
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>身份证号码
@@ -43,7 +43,7 @@
               <div class="layui-input-inline">
                   <input type="text" id="card_id" name="card_id" required="" lay-verify="required"
                   autocomplete="off" class="layui-input" value="${job.card_id }">
-              </div>
+              </div> -->
           </div>
            <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
@@ -54,7 +54,7 @@
                   autocomplete="off" class="layui-input" value="${job.sex }">
               </div>
           </div>
-           <div class="layui-form-item">
+           <!-- <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>学历
               </label>
@@ -62,7 +62,7 @@
                   <input type="text" id="education" name="education" required="" lay-verify="required"
                   autocomplete="off" class="layui-input" value="${job.education }">
               </div>
-          </div>
+          </div> -->
            <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>邮箱
@@ -72,7 +72,7 @@
                   autocomplete="off" class="layui-input" value="${job.email }">
               </div>
           </div>
-           <div class="layui-form-item">
+           <!-- <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>手机
               </label>
@@ -80,8 +80,8 @@
                   <input type="text" id="phone" name="phone" required="" lay-verify="required"
                   autocomplete="off" class="layui-input" value="${job.phone }">
               </div>
-          </div>
-          <div class="layui-form-item">
+          </div> -->
+          <!-- <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>联系地址
               </label>
@@ -89,7 +89,7 @@
                   <input type="text" id="address" name="address" required="" lay-verify="required"
                   autocomplete="off" class="layui-input" value="${job.address }">
               </div>
-          </div>
+          </div> -->
   			<div class="layui-form-item">
               <label for="username" class="layui-form-label">
                   <span class="x-red">*</span>职位

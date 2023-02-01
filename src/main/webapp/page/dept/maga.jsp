@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   
@@ -20,39 +21,97 @@
       <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
       <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      .row {
+        display: flex;
+      }
+      .column {
+        flex: 50%;
+      }
+    </style>
+
   </head>
   
   <body>
     <div class="x-body">
-        <form class="layui-form" method="POST" id="deptForm"  action="${ctx}/job/add">
-        <input type="hidden" name="id" id="id" value="${job.id }" >
-          <div class="layui-form-item">
-              <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>职位名称
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="name" name="name" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="${job.name }">
-              </div>
-             
+        <form class="layui-form" method="POST" id="deptForm"  action="${ctx}/dept/add">
+          
+          <input type="hidden" name="id" id="id" value="${dept.id }" >
+
+          <div class="row">
+            <div class="column">
+                <div class="layui-form-item">
+                    <label for="username" class="layui-form-label">
+                        <span class="x-red">*</span>グループ名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input" value="${dept.name }">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                  <label for="username" class="layui-form-label" style="white-space: nowrap; width: 95px;">
+                      <span class="x-red">*</span>グループ内目標
+                  </label>
+                  <div class="layui-input-inline">
+                      <input type="text" id="name" name="name" required="" lay-verify="required"
+                      autocomplete="off" class="layui-input" value="${dept.name }">
+                  </div>
+                </div>
+
+                <div class="layui-form-item">
+                  <label for="username" class="layui-form-label" style="white-space: nowrap;">
+                      <span class="x-red">*</span>議事録・資料
+                  </label>
+                  <div class="layui-input-inline">
+                      <input type="text" id="name" name="name" required="" lay-verify="required"
+                      autocomplete="off" class="layui-input" value="${dept.name }">
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+              グループ内構成要員の目標管理
+              <table class="layui-table">
+                <thead>
+                  <tr>
+                    
+                    <th style="text-align: center;">役割</th>
+                    <th style="text-align: center;">構成要員（名前）</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <c:forEach items="${requestScope.list}" var="dept" varStatus="stat">
+                    <tr>
+                      
+                      <td>${dept.job}</td>
+                      <td>${dept.name}<a href="#"style=" float:right" onclick="x_admin_show('OKRグループ内ユーザー管理（役割設定）','${ctx}/dept/maga1?id=${dept.id}',650)">;</a></td>
+                    
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
+            </div>
           </div>
+          
           <!-- <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>详细信息
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="remark" name="remark" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input" value="${job.remark }">
+                  autocomplete="off" class="layui-input" value="${dept.remark }">
               </div>
             
           </div> -->
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <input type="submit" value=" 提交" class="layui-btn" lay-filter="add" lay-submit=""/>
+              <input type="submit" value=" 変更" class="layui-btn" lay-filter="add" lay-submit=""/>
                  
           </div>
-      </form>
+      　</form>
     </div>
     <script>
         layui.use(['form','layer'], function(){
@@ -79,7 +138,6 @@
           form.on('submit(add)', function(data){
         	  
             console.log(data);
-            //发异步，把数据提交给php
             var id = document.getElementById("id").value;
             console.log(id);
             if (id === null || id === '') {
@@ -98,10 +156,12 @@
                 var index = parent.layer.getFrameIndex(window.name);
                 //关闭当前frame
                 parent.layer.close(index);
+               
             });
             }
 
-           
+            //发异步，把数据提交给php
+            
             return false;
           });
           

@@ -17,8 +17,8 @@ $(function () {
           })
         }
         ,tabDelete: function(othis){
-          //删除指定Tab项
-          element.tabDelete('xbs_tab', '44'); //删除：“商品管理”
+          //削除指定Tab项
+          element.tabDelete('xbs_tab', '44'); //削除：“商品管理”
           
           
           othis.addClass('layui-btn-disabled');

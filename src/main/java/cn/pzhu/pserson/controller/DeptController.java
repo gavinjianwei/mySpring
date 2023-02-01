@@ -45,6 +45,8 @@ public class DeptController {
 //    if (content != null) {
 //      pageInfo = rainservice.findAllDept(content, pageNum, pageSize);
 //    }
+
+    System.out.println("ppppppp --------------------" + content);
     PageInfo pageInfo = deptService.getDepts(content,pageNum,pageSize);
     model.addAttribute("list", pageInfo.getList());
     model.addAttribute("pageInfo", pageInfo);
@@ -63,8 +65,9 @@ public class DeptController {
   }
 
   @RequestMapping(value = "/dept/add", method = RequestMethod.POST)
-  public ModelAndView add(ModelAndView mv, @ModelAttribute Dept dept, Integer id) {
+  public ModelAndView add(ModelAndView mv, @ModelAttribute Dept dept, Integer id, String job) {
     System.out.println(id);
+    System.out.println("aaaa-- :" + job);
 //		System.out.println(dept.getId());
     if (id != null) {
       rainservice.update_Info(dept);

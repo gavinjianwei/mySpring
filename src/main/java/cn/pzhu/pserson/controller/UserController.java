@@ -127,7 +127,7 @@ public class UserController {
   @RequestMapping("/logout")
   public ModelAndView logOut(String username, HttpSession session) {
 //    User user = (User) session.getAttribute(Constants.USER_SESSION);
-    session.removeAttribute(Constants.USER_SESSION);  //删除这个Session
+    session.removeAttribute(Constants.USER_SESSION);  //削除这个Session
     session.removeAttribute("userid");
     ModelAndView modelAndView = new ModelAndView();
     modelAndView.setViewName("forward:/loginForm");

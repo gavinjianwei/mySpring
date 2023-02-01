@@ -22,7 +22,7 @@ public class JobDynaSqlProvider {
 					}
 				}.toString();
 			}	
-			// 动态更新
+			// 动态変更
 			public String updateDept(Job job){
 				
 				return new SQL(){

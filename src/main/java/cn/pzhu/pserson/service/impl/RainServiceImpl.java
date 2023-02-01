@@ -294,7 +294,7 @@ public class RainServiceImpl implements RainService {
 
   @Override
   public User login(String loginname, String password) {
-    User user = userMapper.get_login(loginname, MD5Util.crypt(password));
+    User user = userMapper.get_login(loginname,password);
     return user;
   }
 

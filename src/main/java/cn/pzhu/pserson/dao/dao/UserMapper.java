@@ -34,7 +34,7 @@ public interface UserMapper extends Mapper<User> {
   @SelectProvider(type = UserDynaSqlProvider.class, method = "update_Notice")
   void update_Info(User employee);
 
-  // 根据id删除部门
+  // 根据id削除部门
   @Delete(" delete from " + Constants.USERTABLE + " where id = #{id} ")
   void delete_Info(Integer id);
 

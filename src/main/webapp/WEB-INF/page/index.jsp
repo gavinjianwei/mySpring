@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>人事管理系统</title>
+	<title>人事OKR目標管理システム</title>
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -23,7 +23,7 @@
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./index.html">人事管理系统</a></div>
+        <div class="logo"><a href="./index.html">人事OKR目標管理システム（TOP）</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
@@ -47,20 +47,20 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b8;</i>
-                    <cite>用户管理</cite>
+                    <cite>ユーザー管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a _href="${ctx }/user/list?pageNum=1&pageSize=6">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>用户列表</cite>
+                            <cite>ユーザー管理一覧</cite>
                         </a>
                     </li >
                     <li>
                         <a _href="${ctx }/user/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加用户</cite>
+                            <cite>ユーザー追加</cite>
                         </a>
                     </li>
                    
@@ -154,7 +154,7 @@
                 </ul>
             </li>
             <li>
-                <a href="javascript:;">
+                <!-- <a href="javascript:;">
                     <i class="iconfont">&#xe6b4;</i>
                     <cite>下载中心</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
@@ -176,7 +176,7 @@
             </li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="x-slide_left"></div> -->
     <!-- 左侧菜单结束 -->
     <!-- 右侧主体开始 -->

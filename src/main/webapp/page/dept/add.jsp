@@ -29,7 +29,7 @@
         <input type="hidden" name="id" id="id" value="${dept.id }" >
           <div class="layui-form-item">
               <label for="username" class="layui-form-label">
-                  <span class="x-red">*</span>部门名称
+                  <span class="x-red">*</span>グループ名
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="name" name="name" required="" lay-verify="required"
@@ -37,7 +37,7 @@
               </div>
              
           </div>
-          <div class="layui-form-item">
+          <!-- <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>详细信息
               </label>
@@ -46,11 +46,11 @@
                   autocomplete="off" class="layui-input" value="${dept.remark }">
               </div>
             
-          </div>
+          </div> -->
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <input type="submit" value=" 提交" class="layui-btn" lay-filter="add" lay-submit=""/>
+              <input type="submit" value=" 更新" class="layui-btn" lay-filter="add" lay-submit=""/>
                  
           </div>
       </form>

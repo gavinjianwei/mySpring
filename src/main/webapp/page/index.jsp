@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>人事管理系统</title>
+	<title>人事OKR目標管理システム</title>
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -23,7 +23,7 @@
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./index.html">人事管理系统</a></div>
+        <div class="logo"><a href="./index.html">人事OKR目標管理システム（TOP）</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
@@ -45,98 +45,126 @@
       <div id="side-nav">
         <ul id="nav">
         <c:if test="${user_session.level=='0'}">
+
+        <li>
+            <a href="javascript:;">
+                <i class="iconfont">&#xe6ce;</i>
+                <cite>OKR目標管理について</cite>
+                <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a _href="${ctx }/notice/list?pageNum=1&pageSize=6">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite>OKR目標管理操作方法一覧</cite>
+                    </a>
+                </li >
+                <li>
+                    <a _href="${ctx }/notice/add">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite>OKR目標管理操作情報追加</cite>
+                    </a>
+                </li >
+               
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;">
+                <i class="iconfont">&#xe723;</i>
+                <cite>OKRグループ管理</cite>
+                <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a _href="${ctx }/dept/list?pageNum=1&pageSize=6">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite>OKRグループ管理</cite>
+                    </a>
+                </li >
+             <c:if test="${user_session.level=='0'}">
+                <li>
+                    <a _href="${ctx }/dept/add">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite>グループ追加</cite>
+                    </a>
+                </li >
+             </c:if>
+            </ul>
+        </li>
+
+        <li>
+             <a href="javascript:;">
+                <i class="iconfont">&#xe726;</i>
+                <cite>OKRユーザー管理</cite>
+                <i class="iconfont nav_right">&#xe697;</i>
+             </a>
+            <ul class="sub-menu">
+                <li>
+                    <a _href="${ctx }/employee/list?pageNum=1&pageSize=6">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite>OKRユーザー管理一覧</cite>
+                    </a>
+                </li >
+                <li>
+                    <a _href="${ctx }/employee/add">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite>OKRユーザー追加</cite>
+                    </a>
+                </li >
+            </ul>
+        </li>
+
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b8;</i>
-                    <cite>用户管理</cite>
+                    <cite>ユーザー管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a _href="${ctx }/user/list?pageNum=1&pageSize=6">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>用户列表</cite>
+                            <cite>ユーザー管理一覧</cite>
                         </a>
                     </li >
                   
                         <li>
                             <a _href="${ctx }/user/add">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>添加用户</cite>
+                                <cite>ユーザー追加</cite>
                             </a>
                         </li>
                    
                 </ul>
             </li>
         </c:if>
+            
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>部门管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="${ctx }/dept/list?pageNum=1&pageSize=6">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>部门列表</cite>
-                        </a>
-                    </li >
-                <c:if test="${user_session.level=='0'}">
-                    <li>
-                        <a _href="${ctx }/dept/add">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加部门</cite>
-                        </a>
-                    </li >
-                </c:if>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe723;</i>
-                    <cite>职位管理</cite>
+                    <cite>役割管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a _href="${ctx }/job/list?pageNum=1&pageSize=6">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>职位列表</cite>
+                            <cite>役割管理一覧</cite>
                         </a>
                     </li >
                      <li>
                         <a _href="${ctx }/job/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加职位</cite>
+                            <cite>役割追加</cite>
                         </a>
                     </li >
                 </ul>
             </li>
            
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe726;</i>
-                    <cite>员工管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="${ctx }/employee/list?pageNum=1&pageSize=6">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>员工列表</cite>
-                        </a>
-                    </li >
-                    <li>
-                        <a _href="${ctx }/employee/add">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加员工</cite>
-                        </a>
-                    </li >
-                </ul>
-            </li>
+            
 
-            <li>
+            <!-- <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe726;</i>
                     <cite>招聘管理</cite>
@@ -156,32 +184,10 @@
                         </a>
                     </li >
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe6ce;</i>
-                    <cite>公告管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="${ctx }/notice/list?pageNum=1&pageSize=6">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>公告查询</cite>
-                        </a>
-                    </li >
-                    <li>
-                        <a _href="${ctx }/notice/add">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加公告</cite>
-                        </a>
-                    </li >
-                   
-                   
-                </ul>
-            </li>
-            <li>
+            
+            <!-- <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b4;</i>
                     <cite>下载中心</cite>
@@ -201,9 +207,9 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b4;</i>
                     <cite>聊天室</cite>
@@ -217,7 +223,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
       </div>
     </div>
@@ -227,7 +233,7 @@
     <div class="page-content">
         <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
           <ul class="layui-tab-title">
-            <li class="home"><i class="layui-icon">&#xe68e;</i>我的桌面</li>
+            <li class="home"><i class="layui-icon">&#xe68e;</i>画面</li>
           </ul>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">

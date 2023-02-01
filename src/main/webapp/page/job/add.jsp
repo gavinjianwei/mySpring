@@ -37,7 +37,7 @@
               </div>
              
           </div>
-          <div class="layui-form-item">
+          <!-- <div class="layui-form-item">
               <label for="phone" class="layui-form-label">
                   <span class="x-red">*</span>详细信息
               </label>
@@ -46,7 +46,7 @@
                   autocomplete="off" class="layui-input" value="${job.remark }">
               </div>
             
-          </div>
+          </div> -->
           <div class="layui-form-item">
             <label for="phone" class="layui-form-label">
                 <span class="x-red">*</span>选择部门
